@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import TodoList from './todoList'
+import store from './store'
 
-Vue.config.productionTip = false
-
+/* eslint-disable no-new */
 new Vue({
-    render: h => h(App),
-}).$mount('#app')
+  store,
+  el: '#app',
+  render: h => h(TodoList)
+})
