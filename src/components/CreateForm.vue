@@ -1,22 +1,29 @@
 <template>
-  <div id="forms">
-    <input type="text" v-model="inputtingText" />
-    <button @click="handleAdd">Add</button>
-  </div>
+    <div class="input-form">
+        <input type="input" v-model="inputtingItem">
+        <button @click="handleCreateTodo">Add</button>
+    </div>
 </template>
+
 <script>
-export default {
-  name: "forms",
-  data: function() {
-    return {
-      inputtingText: ""
-    };
-  },
-  methods: {
-    handleAdd: function() {
-      this.$emit("addNewToDo", this.inputtingText);
-      this.inputtingText = "";
+    export default {
+        name: "create-form",
+        data: function () {
+            return {
+                inputtingItem: ""
+            }
+        },
+        methods: {
+            handleCreateTodo: function () {
+                this.$store.state.todoList.push({
+                    status: 'active',
+                    content:this.inputtingItem
+                })
+            }
+        }
     }
-  }
-};
 </script>
+
+<style scoped>
+
+</style>

@@ -1,10 +1,13 @@
 import Vue from 'vue'
-import TodoList from './todoList'
-import store from './store'
+import Vuex from 'vuex'
+import App from './App.vue'
+import state from './store/index'
 
-/* eslint-disable no-new */
+Vue.config.productionTip = false
+
+Vue.use(Vuex)
+
 new Vue({
-  store,
-  el: '#app',
-  render: h => h(TodoList)
-})
+    store: new Vuex.Store(state),
+    render: h => h(App),
+}).$mount('#app')
